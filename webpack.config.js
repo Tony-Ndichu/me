@@ -22,6 +22,10 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
       },
+      {
+        test: /\.(png|svg|jpg|ttf|jpe?g|woff|woff2|eot|gif|mp4)$/,
+        use: ['file-loader'],
+      },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },

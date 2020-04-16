@@ -2,10 +2,9 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,29 +20,34 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Header = () => {
+interface IProps {
+  history: any;
+}
+
+const Header: React.FC<IProps> = (props) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color="transparent">
         <Toolbar>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
+          ></IconButton>
+          <Name onClick={() => props.history.push('/')}>Antony Ndichu</Name>
         </Toolbar>
       </AppBar>
     </div>
   );
 };
 
-export default Header;
+const Name = styled.div`
+  color: #f9ed44;
+  cursor: pointer;
+  font-family: 'Luckiest Guy', cursive;
+`;
+
+export default withRouter(Header);

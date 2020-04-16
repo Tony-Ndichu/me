@@ -1,10 +1,10 @@
-import Home from '../views/Home';
+import FullPage from '../views/FullPage';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: FullPage,
   },
 ];
 
