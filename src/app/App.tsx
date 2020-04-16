@@ -1,14 +1,38 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import Home from './views/Home';
+import { createGlobalStyle } from 'styled-components';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import routes from './routes';
 
-declare let module: any;
+interface IProps {}
 
-ReactDOM.render(
-  <Home compiler="typescript" framework="react" bundler="webpac" />,
-  document.getElementById('root')
-);
+const App: React.FC<IProps> = (props) => {
+  const GlobalStyles = createGlobalStyle`
+  body {
+    margin: 0 !important;
+    background-color: white;
+    font-family: 'Fredoka One', cursive;
+  }
+`;
 
-if (module.hot) {
-  module.hot.accept();
-}
+  return (
+    <>
+      <GlobalStyles />
+      <BrowserRouter>
+        <Switch>
+          {routes.map((prop) => {
+            return (
+              <Route
+                exact
+                path={prop.path}
+                component={prop.component}
+                key={prop.path}
+              />
+            );
+          })}
+        </Switch>
+      </BrowserRouter>
+    </>
+  );
+};
+
+export default App;

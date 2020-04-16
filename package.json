@@ -20,15 +20,19 @@
   },
   "homepage": "https://github.com/Tony-Ndichu/me#readme",
   "dependencies": {
+    "@types/material-ui": "^0.21.7",
+    "@types/react-router-dom": "^5.1.4",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
+    "styled-components": "^5.1.0",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@types/styled-components": "^5.1.0",
     "html-webpack-plugin": "^4.2.0",
     "prettier": "^2.0.4",
     "source-map-loader": "^0.2.4",
